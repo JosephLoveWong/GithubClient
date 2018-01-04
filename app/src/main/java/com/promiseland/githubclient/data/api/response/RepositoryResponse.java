@@ -6,11 +6,11 @@ import com.google.gson.annotations.SerializedName;
  * Created by joseph on 2018/1/3.
  */
 
-public class Repository {
+public class RepositoryResponse {
     public int id;
     public String name;
     public String full_name;
-    public User owner;
+    public UserResponse owner;
     @SerializedName("private")
     public boolean privateX;
     public String html_url;

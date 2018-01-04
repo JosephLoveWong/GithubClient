@@ -4,7 +4,7 @@ package com.promiseland.githubclient.data.api.response;
  * Created by joseph on 2018/1/3.
  */
 
-public class User {
+public class UserResponse {
     public String login;
     public int id;
     public String avatar_url;

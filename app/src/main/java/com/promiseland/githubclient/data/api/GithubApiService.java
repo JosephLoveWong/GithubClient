@@ -1,7 +1,7 @@
 package com.promiseland.githubclient.data.api;
 
-import com.promiseland.githubclient.data.api.response.Repository;
-import com.promiseland.githubclient.data.api.response.User;
+import com.promiseland.githubclient.data.api.response.RepositoryResponse;
+import com.promiseland.githubclient.data.api.response.UserResponse;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import retrofit2.http.Path;
 public interface GithubApiService {
 
     @GET("/users/{username}")
-    Observable<User> getUser(@Path("username") String username);
+    Observable<UserResponse> getUser(@Path("username") String username);
 
     @GET("/users/{username}/repos")
-    Observable<List<Repository>> getUsersRepositories(@Path("username") String username);
+    Observable<List<RepositoryResponse>> getUsersRepositories(@Path("username") String username);
 
 }

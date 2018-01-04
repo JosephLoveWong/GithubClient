@@ -1,5 +1,9 @@
 package com.promiseland.githubclient;
 
+import com.promiseland.githubclient.data.api.GithubApiModule;
+import com.promiseland.githubclient.ui.splash.di.SplashActivityModule;
+import com.promiseland.githubclient.ui.splash.di.SplashActivitySubComponent;
+
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -10,7 +14,9 @@ import dagger.Component;
 
 @Singleton
 @Component(modules = {
-        AppModule.class
+        AppModule.class,
+        GithubApiModule.class
 })
-public class AppComponent {
+public interface AppComponent {
+    SplashActivitySubComponent plus(SplashActivityModule module);
 }

@@ -26,7 +26,7 @@ public class GithubApiModule {
 
     @Singleton
     @Provides
-    OkHttpClient.Builder provideOkHttpClientBuilder() {
+    OkHttpClient provideOkHttpClientBuilder() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         if(BuildConfig.DEBUG) {
             builder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
@@ -35,7 +35,7 @@ public class GithubApiModule {
         builder.connectTimeout(60 * 1000, TimeUnit.MILLISECONDS)
                .readTimeout(60 * 1000, TimeUnit.MILLISECONDS);
 
-        return builder;
+        return builder.build();
     }
 
     @Singleton
@@ -53,5 +53,11 @@ public class GithubApiModule {
     @Provides
     GithubApiService provideGithubApiService(Retrofit retrofit) {
         return retrofit.create(GithubApiService.class);
+    }
+
+    @Singleton
+    @Provides
+    UserManager provideUserManager(GithubApiService githubApiService) {
+        return new UserManager(githubApiService);
     }
 }
