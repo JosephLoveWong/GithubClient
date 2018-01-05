@@ -14,7 +14,7 @@ import dagger.Provides;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -26,7 +26,7 @@ public class GithubApiModule {
 
     @Singleton
     @Provides
-    OkHttpClient provideOkHttpClientBuilder() {
+    OkHttpClient provideOkHttpClient() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         if(BuildConfig.DEBUG) {
             builder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
@@ -45,7 +45,7 @@ public class GithubApiModule {
                 .client(okHttpClient)
                 .baseUrl(application.getString(R.string.endpoint))
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
 
@@ -59,5 +59,11 @@ public class GithubApiModule {
     @Provides
     UserManager provideUserManager(GithubApiService githubApiService) {
         return new UserManager(githubApiService);
+    }
+
+    @Singleton
+    @Provides
+    RepositoryManager provideRepositoryManager(GithubApiService githubApiService) {
+        return new RepositoryManager(githubApiService);
     }
 }

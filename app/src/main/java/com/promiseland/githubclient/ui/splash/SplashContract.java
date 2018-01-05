@@ -2,6 +2,7 @@ package com.promiseland.githubclient.ui.splash;
 
 import com.promiseland.githubclient.BasePresenter;
 import com.promiseland.githubclient.BaseView;
+import com.promiseland.githubclient.data.model.User;
 
 
 /**
@@ -12,12 +13,12 @@ public interface SplashContract {
 
     interface View extends BaseView<Presenter> {
         void showLoading(boolean loading);
-        void showRepositoriesListForUser(String username);
         void showValidationError();
+        void showRepositoriesListForUser(User user);
     }
 
     interface Presenter extends BasePresenter {
-        void showRepositories();
+        void checkUser();
         void setUsername(String username);
     }
 }

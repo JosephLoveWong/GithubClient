@@ -1,5 +1,6 @@
 package com.promiseland.githubclient.ui.splash;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -10,7 +11,9 @@ import android.widget.ProgressBar;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.promiseland.githubclient.GithubApp;
 import com.promiseland.githubclient.R;
+import com.promiseland.githubclient.data.model.User;
 import com.promiseland.githubclient.ui.BaseActivity;
+import com.promiseland.githubclient.ui.repositoryList.RepositoryListActivity;
 import com.promiseland.githubclient.ui.splash.di.SplashActivityModule;
 
 import javax.inject.Inject;
@@ -20,7 +23,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
-import timber.log.Timber;
 
 /**
  * Created by Administrator on 2018/1/4.
@@ -75,7 +77,7 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
 
     @OnClick(R.id.btnShowRepositories)
     public void showRepositories() {
-        mPresenter.showRepositories();
+        mPresenter.checkUser();
     }
 
     @Override
@@ -85,12 +87,13 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
     }
 
     @Override
-    public void showRepositoriesListForUser(String username) {
-        Timber.e(username);
+    public void showValidationError() {
+        etUsername.setError("Validation error");
     }
 
     @Override
-    public void showValidationError() {
-        etUsername.setError("Validation error");
+    public void showRepositoriesListForUser(User user) {
+        // TODO
+        startActivity(new Intent(this, RepositoryListActivity.class));
     }
 }

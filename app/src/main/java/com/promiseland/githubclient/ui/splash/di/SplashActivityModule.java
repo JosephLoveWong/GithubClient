@@ -1,5 +1,7 @@
 package com.promiseland.githubclient.ui.splash.di;
 
+import com.promiseland.githubclient.data.api.RepositoryManager;
+import com.promiseland.githubclient.data.api.UserManager;
 import com.promiseland.githubclient.ui.splash.SplashContract;
 import com.promiseland.githubclient.ui.splash.SplashPresenter;
 
@@ -24,7 +26,7 @@ public class SplashActivityModule {
     }
 
     @Provides
-    public SplashContract.Presenter providePresenter(SplashContract.View view) {
-        return new SplashPresenter(view);
+    public SplashContract.Presenter providePresenter(SplashContract.View view, UserManager userManager, RepositoryManager repositoryManager) {
+        return new SplashPresenter(view, userManager, repositoryManager);
     }
 }
