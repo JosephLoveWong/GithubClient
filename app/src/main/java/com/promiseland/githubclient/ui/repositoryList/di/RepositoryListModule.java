@@ -1,5 +1,7 @@
 package com.promiseland.githubclient.ui.repositoryList.di;
 
+import com.promiseland.githubclient.data.api.RepositoryManager;
+import com.promiseland.githubclient.data.model.User;
 import com.promiseland.githubclient.ui.repositoryList.RepositoryListContract;
 import com.promiseland.githubclient.ui.repositoryList.RepositoryListPresenter;
 
@@ -24,9 +26,8 @@ public class RepositoryListModule {
     }
 
     @Provides
-    RepositoryListContract.Presenter providePresenter(RepositoryListContract.View view) {
-        // todo
-        return new RepositoryListPresenter(view);
+    RepositoryListContract.Presenter providePresenter(RepositoryListContract.View view, RepositoryManager manager, User user) {
+        return new RepositoryListPresenter(view, manager, user);
     }
 
 }

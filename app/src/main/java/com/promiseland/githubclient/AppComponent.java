@@ -1,8 +1,8 @@
 package com.promiseland.githubclient;
 
+import com.promiseland.githubclient.data.UserSubComponent;
 import com.promiseland.githubclient.data.api.GithubApiModule;
-import com.promiseland.githubclient.ui.repositoryList.di.RepositoryListModule;
-import com.promiseland.githubclient.ui.repositoryList.di.RepositoryListSubComponent;
+import com.promiseland.githubclient.data.api.UserModule;
 import com.promiseland.githubclient.ui.splash.di.SplashActivityModule;
 import com.promiseland.githubclient.ui.splash.di.SplashActivitySubComponent;
 
@@ -21,5 +21,5 @@ import dagger.Component;
 })
 public interface AppComponent {
     SplashActivitySubComponent plus(SplashActivityModule module);
-    RepositoryListSubComponent plus(RepositoryListModule module);
+    UserSubComponent plus(UserModule module);
 }

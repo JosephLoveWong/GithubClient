@@ -93,7 +93,7 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
 
     @Override
     public void showRepositoriesListForUser(User user) {
-        // TODO
+        GithubApp.get(this).createUserSubComponent(user);
         startActivity(new Intent(this, RepositoryListActivity.class));
     }
 }

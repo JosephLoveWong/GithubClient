@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GithubClient.iml" filepath="$PROJECT_DIR$/GithubClient.iml" />
       <module fileurl="file://E:\Projects\ProjectsTemp\GithubClient\.idea\GithubClient.iml" filepath="E:\Projects\ProjectsTemp\GithubClient\.idea\GithubClient.iml" />
+      <module fileurl="file://E:\Repositories\GitRepository\GithubClient\GithubClient.iml" filepath="E:\Repositories\GitRepository\GithubClient\GithubClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
