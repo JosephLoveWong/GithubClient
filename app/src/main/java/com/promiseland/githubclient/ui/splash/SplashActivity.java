@@ -13,7 +13,7 @@ import com.promiseland.githubclient.GithubApp;
 import com.promiseland.githubclient.R;
 import com.promiseland.githubclient.data.model.User;
 import com.promiseland.githubclient.ui.BaseActivity;
-import com.promiseland.githubclient.ui.repositoryList.RepositoryListActivity;
+import com.promiseland.githubclient.ui.repositoryList.RepositoriesListActivity;
 import com.promiseland.githubclient.ui.splash.di.SplashActivityModule;
 
 import javax.inject.Inject;
@@ -94,6 +94,6 @@ public class SplashActivity extends BaseActivity implements SplashContract.View{
     @Override
     public void showRepositoriesListForUser(User user) {
         GithubApp.get(this).createUserSubComponent(user);
-        startActivity(new Intent(this, RepositoryListActivity.class));
+        startActivity(new Intent(this, RepositoriesListActivity.class));
     }
 }

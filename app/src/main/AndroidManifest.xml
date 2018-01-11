@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.repositoryList.RepositoryListActivity"/>
+        <activity android:name=".ui.repositoryList.RepositoriesListActivity"/>
     </application>
 
 </manifest>

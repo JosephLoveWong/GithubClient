@@ -11,12 +11,12 @@ import java.util.List;
  * Created by Administrator on 2018/1/5.
  */
 
-public class RepositoryListPresenter implements RepositoryListContract.Presenter {
-    private RepositoryListContract.View mView;
+public class RepositoriesListPresenter implements RepositoriesListContract.Presenter {
+    private RepositoriesListContract.View mView;
     private RepositoryManager mRepositoryManager;
     private User mUser;
 
-    public RepositoryListPresenter(RepositoryListContract.View view, RepositoryManager repositoryManager, User user) {
+    public RepositoriesListPresenter(RepositoriesListContract.View view, RepositoryManager repositoryManager, User user) {
         mView = view;
         mRepositoryManager = repositoryManager;
         mUser = user;

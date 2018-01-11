@@ -1,8 +1,8 @@
 package com.promiseland.githubclient.data;
 
 import com.promiseland.githubclient.data.api.UserModule;
-import com.promiseland.githubclient.ui.repositoryList.di.RepositoryListModule;
-import com.promiseland.githubclient.ui.repositoryList.di.RepositoryListSubComponent;
+import com.promiseland.githubclient.ui.repositoryList.di.RepositoriesListModule;
+import com.promiseland.githubclient.ui.repositoryList.di.RepositoriesListSubComponent;
 
 import dagger.Subcomponent;
 
@@ -14,5 +14,5 @@ import dagger.Subcomponent;
         UserModule.class
 })
 public interface UserSubComponent {
-    RepositoryListSubComponent plus(RepositoryListModule module);
+    RepositoriesListSubComponent plus(RepositoriesListModule module);
 }
