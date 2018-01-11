@@ -10,6 +10,7 @@ import com.promiseland.githubclient.GithubApp;
 import com.promiseland.githubclient.R;
 import com.promiseland.githubclient.data.model.Repository;
 import com.promiseland.githubclient.ui.BaseActivity;
+import com.promiseland.githubclient.ui.repositoryDetail.RepositoryDetailActivity;
 import com.promiseland.githubclient.ui.repositoryList.adapter.RepositoriesListAdapter;
 import com.promiseland.githubclient.ui.repositoryList.di.RepositoriesListModule;
 
@@ -47,6 +48,12 @@ public class RepositoriesListActivity extends BaseActivity implements Repositori
     }
 
     @Override
+    public void finish() {
+        super.finish();
+        GithubApp.get(this).releaseUserSubComponent();
+    }
+
+    @Override
     protected void setupActivityComponent() {
         GithubApp.get(this)
                 .getUserSubComponent()
@@ -74,6 +81,6 @@ public class RepositoriesListActivity extends BaseActivity implements Repositori
 
     @Override
     public void onRepositoryClick(Repository repository) {
-
+        RepositoryDetailActivity.startWithRepository(repository, this);
     }
 }
